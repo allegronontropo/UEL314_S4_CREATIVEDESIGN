@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import Hero from "./components/Hero/Hero";
+import Cards from "./components/Cards/Cards";
+import "./styles/main.scss";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [stage, setStage] = useState("intact");
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+
+      if (y < 300) setStage("intact");
+      else if (y < 700) setStage("cracked");
+      else setStage("broken");
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Hero stage={stage} />
+      <Cards stage={stage} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

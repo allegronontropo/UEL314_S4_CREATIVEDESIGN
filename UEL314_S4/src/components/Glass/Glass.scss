@@ -1,0 +1,31 @@
+@import "../../styles/_variables";
+@import "../../styles/_mixins";
+
+.glass {
+  width: 80%;
+  height: 40px;
+  margin: 3rem auto 0;
+  @include glass;
+  position: relative;
+  overflow: hidden;
+
+  .cracks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    stroke: $neon-pink;
+    stroke-width: 1.5;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .cracks.cracked {
+    opacity: 0.6;
+  }
+
+  .cracks.broken {
+    opacity: 1;
+  }
+}

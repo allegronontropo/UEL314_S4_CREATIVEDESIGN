@@ -1,0 +1,51 @@
+@import "../../styles/_variables";
+@import "../../styles/_mixins";
+
+.hero {
+  height: 100vh;
+  @include flex-center;
+  text-align: center;
+  background: radial-gradient(circle, #121a2f, $bg-dark);
+
+  .content {
+    position: relative;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: $neon-pink;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: $neon-cyan;
+    margin-bottom: 3rem;
+  }
+
+  .robot {
+    width: 280px;
+    margin: auto;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .glass {
+    margin: 3rem auto 0;
+    width: 80%;
+    height: 40px;
+    @include glass;
+    transition: all 0.6s ease;
+
+    &.cracked {
+      background-image: url("/glass-crack.png");
+      background-size: cover;
+    }
+
+    &.broken {
+      opacity: 0;
+      transform: translateY(200px);
+    }
+  }
+}

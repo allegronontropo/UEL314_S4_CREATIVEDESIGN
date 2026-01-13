@@ -1,0 +1,25 @@
+.hero {
+    height: 100vh;
+    background: radial-gradient(circle, #121a2f, $bg-dark);
+    color: $text-light;
+  
+    .robot {
+      width: 300px;
+      animation: float 4s ease-in-out infinite;
+  
+      img {
+        width: 100%;
+      }
+    }
+  
+    .glass {
+      @include glassmorphism;
+      width: 80%;
+      height: 40px;
+  
+      &.cracked {
+        background-image: url("/cracks.png");
+      }
+    }
+  }
+  

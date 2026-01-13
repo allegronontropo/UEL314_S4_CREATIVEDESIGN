@@ -1,0 +1,17 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @mixin glass {
+    background: $glass-bg;
+    backdrop-filter: blur(14px);
+    border: 1px solid $glass-border;
+    border-radius: 16px;
+  }
+  
+  @mixin neon($color) {
+    box-shadow: 0 0 25px $color;
+  }
+  
